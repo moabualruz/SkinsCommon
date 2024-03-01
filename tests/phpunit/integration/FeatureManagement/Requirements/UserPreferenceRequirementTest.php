@@ -16,13 +16,6 @@ use MediaWiki\User\User;
  */
 final class UserPreferenceRequirementTest extends \MediaWikiIntegrationTestCase {
 
-	protected function setUp(): void {
-		parent::setUp();
-		$this->overrideConfigValues( [
-			'VictoruserRequirementOptions' => []
-		] );
-	}
-
 	public static function providerTestIsMetRequirement() {
 		return [
 			[

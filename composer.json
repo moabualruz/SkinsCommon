@@ -1,5 +1,5 @@
 {
-	"name": "mediawiki/skins-common",
+	"name": "mo-mediawiki/skins-common",
 	"description": "A set of common resources for MediaWiki skins a free software wiki application developed by the Wikimedia Foundation and others",
 	"type": "mediawiki-library",
 	"keywords": [
