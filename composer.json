@@ -28,11 +28,11 @@
 	"homepage": "https://www.mediawiki.org/",
 	"authors": [
 		{
-			"name": "MediaWiki Community",
-			"homepage": "https://www.mediawiki.org/wiki/Special:Version/Credits"
+			"name": "Mohd Abualruz",
+			"email": "mabualruz@wikimedia.org"
 		}
 	],
-	"license": "GPL-2.0-or-later",
+	"license": "Apache-2.0",
 	"support": {
 		"issues": "https://phabricator.wikimedia.org/",
 		"irc": "irc://irc.libera.chat/mediawiki",
@@ -41,6 +41,11 @@
 	"autoload": {
 		"psr-4": {
 			"Mediawiki\\Skins\\Common\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Mediawiki\\Skins\\Common\\Tests\\": "tests/"
 		}
 	},
 	"scripts": {
