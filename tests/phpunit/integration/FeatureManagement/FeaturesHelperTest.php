@@ -9,7 +9,7 @@ use MediaWikiIntegrationTestCase;
 
 /**
  * @group MinervaNeue
- * @coversDefaultClass MediaWiki\Skins\Vector\FeatureManagement\FeaturesHelper
+ * @coversDefaultClass MediaWiki\Skins\Common\FeatureManagement\FeaturesHelper
  */
 class FeaturesHelperTest extends MediaWikiIntegrationTestCase {
 
