@@ -3,7 +3,7 @@
 namespace MediaWiki\Skins\Common\Tests\Unit\FeatureManagement;
 
 use MediaWiki\Request\WebRequest;
-use MediaWiki\Skins\Vector\FeatureManagement\FeaturesHelper;
+use MediaWiki\Skins\Common\FeatureManagement\FeaturesHelper;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
