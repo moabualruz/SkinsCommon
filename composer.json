@@ -40,12 +40,13 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Mediawiki\\Skins\\Common\\": "src/"
+			"Mediawiki\\Skins\\Common\\": "includes/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Mediawiki\\Skins\\Common\\Tests\\": "tests/"
+			"Mediawiki\\Skins\\Common\\Tests\\Unit\\": "tests/unit",
+			"Mediawiki\\Skins\\Common\\Tests\\Integration\\": "tests/integration"
 		}
 	},
 	"scripts": {
