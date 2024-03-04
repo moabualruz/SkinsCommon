@@ -3,17 +3,17 @@
 namespace WikiMedia\Skins\Common\Tests\Unit\FeatureManagement;
 
 use MediaWiki\Request\WebRequest;
-use WikiMedia\Skins\Common\FeatureManagement\FeaturesHelper;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
+use WikiMedia\Skins\Common\FeatureManagement\FeaturesHelper;
 
 /**
  * @group MinervaNeue
- * @coversDefaultClass WikiMedia\Skins\Common\FeatureManagement\FeaturesHelper
+ * @coversDefaultClass \WikiMedia\Skins\Common\FeatureManagement\FeaturesHelper
  */
 class FeaturesHelperTest extends MediaWikiIntegrationTestCase {
 
-	public function provideShouldDisableNightModeExcluded() {
+	public function provideShouldDisableRequirementFromOptionsExecluded() {
 		$options = [
 			'exclude' => [
 				'mainpage' => true,
@@ -42,20 +42,20 @@ class FeaturesHelperTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @dataProvider provideShouldDisableNightModeExcluded
-	 * @covers \MediaWiki\Minerva\Skins\FeaturesHelper::shouldDisableNightMode
+	 * @dataProvider provideShouldDisableRequirementFromOptionsExecluded
+	 * @covers \WikiMedia\Skins\Common\FeatureManagement\FeaturesHelper::shouldDisableRequirementFromOptions
 	 */
-	public function testShouldDisableNightModeExcluded(
+	public function testShouldDisableRequirementFromOptionsExecluded(
 		array $options, WebRequest $request, Title $title = null, bool $expeted = false ) {
 		$featuresHelper = new FeaturesHelper();
-		$shouldDisableNightMode = $featuresHelper->shouldDisableNightMode( $options, $request, $title );
+		$shouldDisableNightMode = $featuresHelper->shouldDisableRequirementFromOptions( $options, $request, $title );
 		$this->assertSame( $expeted, $shouldDisableNightMode );
 	}
 
 	/**
-	 * @covers \MediaWiki\Minerva\Skins\FeaturesHelper::shouldDisableNightMode
+	 * @covers \WikiMedia\Skins\Common\FeatureManagement\FeaturesHelper::shouldDisableRequirementFromOptions
 	 */
-	public function testShouldDisableNightModeIncluded() {
+	public function testShouldDisableRequirementFromOptionsIncluded() {
 		$options = [
 			'exclude' => [
 				'mainpage' => false,
@@ -71,7 +71,7 @@ class FeaturesHelperTest extends MediaWikiIntegrationTestCase {
 		$request = $context->getRequest();
 		$includedTitle = Title::makeTitle( NS_MAIN, 'Included Page' );
 		$featuresHelper = new FeaturesHelper();
-		$shouldDisableNightMode = $featuresHelper->shouldDisableNightMode( $options, $request, $includedTitle );
+		$shouldDisableNightMode = $featuresHelper->shouldDisableRequirementFromOptions( $options, $request, $includedTitle );
 		$this->assertFalse( $shouldDisableNightMode );
 	}
 
