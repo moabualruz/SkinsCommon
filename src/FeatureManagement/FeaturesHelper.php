@@ -18,14 +18,14 @@ class FeaturesHelper {
 	 *  OR
 	 *  3) The canonical title matches one of the titles in $options['exclude']['pagetitles']
 	 *
-	 * @param array $options
+	 * @param array|null $options
 	 * @param WebRequest $request
 	 * @param Title|null $title
 	 *
 	 * @return bool
 	 */
 	public function shouldDisableRequirementFromOptions(
-		array $options, WebRequest $request, Title $title = null ): bool {
+		$options, WebRequest $request, Title $title = null ): bool {
 		if ( !$options ) {
 			return false;
 		}
