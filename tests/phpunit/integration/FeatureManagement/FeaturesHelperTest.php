@@ -1,15 +1,15 @@
 <?php
 
-namespace MediaWiki\Skins\Common\Tests\Unit\FeatureManagement;
+namespace WikiMedia\Skins\Common\Tests\Unit\FeatureManagement;
 
 use MediaWiki\Request\WebRequest;
-use MediaWiki\Skins\Common\FeatureManagement\FeaturesHelper;
+use WikiMedia\Skins\Common\FeatureManagement\FeaturesHelper;
 use MediaWiki\Title\Title;
 use MediaWikiIntegrationTestCase;
 
 /**
  * @group MinervaNeue
- * @coversDefaultClass MediaWiki\Skins\Common\FeatureManagement\FeaturesHelper
+ * @coversDefaultClass WikiMedia\Skins\Common\FeatureManagement\FeaturesHelper
  */
 class FeaturesHelperTest extends MediaWikiIntegrationTestCase {
 

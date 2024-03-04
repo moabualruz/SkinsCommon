@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Skins\Common\FeatureManagement;
+namespace WikiMedia\Skins\Common\FeatureManagement;
 
 use MediaWiki\Request\WebRequest;
 use MediaWiki\Title\Title;
@@ -8,10 +8,10 @@ use MediaWiki\Title\Title;
 class FeaturesHelper {
 
 	/**
-	 * Per the $options configuration (for use with $wgMinervaNightModeOptions)
-	 * determine whether Night Mode should be disabled on the page.
+	 * Per the $options configuration (for use with $wgVictor${requirementName}Options)
+	 * determine whether the requirment should be disabled on the page.
 	 * For the main page: Check the value of $options['exclude']['mainpage']
-	 * Night Mode is disabled if:
+	 * the requirment is disabled if:
 	 *  1) The current namespace is listed in array $options['exclude']['namespaces']
 	 *  OR
 	 *  2) A query string parameter matches one of the regex patterns in $exclusions['querystring'].
@@ -23,9 +23,12 @@ class FeaturesHelper {
 	 * @param Title|null $title
 	 *
 	 * @return bool
-	 * @internal only for use inside tests.
 	 */
-	public function shouldDisableNightMode( array $options, WebRequest $request, Title $title = null ) {
+	public function shouldDisableRequirementFromOptions(
+		array $options, WebRequest $request, Title $title = null ): bool {
+		if ( !$options ) {
+			return false;
+		}
 		$canonicalTitle = $title != null ? $title->getRootTitle() : null;
 
 		$exclusions = $options[ 'exclude' ] ?? [];

@@ -43,13 +43,13 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Mediawiki\\Skins\\Common\\": "src/"
+			"WikiMedia\\Skins\\Common\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Mediawiki\\Skins\\Common\\Tests\\Unit\\": "tests/phpunit/unit/",
-			"Mediawiki\\Skins\\Common\\Tests\\Integration\\": "tests/phpunit/integration/"
+			"WikiMedia\\Skins\\Common\\Tests\\Unit\\": "tests/phpunit/unit/",
+			"WikiMedia\\Skins\\Common\\Tests\\Integration\\": "tests/phpunit/integration/"
 		}
 	},
 	"scripts": {
