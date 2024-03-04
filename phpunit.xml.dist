@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" colors="true" beStrictAboutTestsThatDoNotTestAnything="true" beStrictAboutOutputDuringTests="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage includeUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+  </coverage>
+  <php>
+    <!-- The default of 100 is too low -->
+    <ini name="xdebug.max_nesting_level" value="1000"/>
+  </php>
+  <testsuites>
+    <testsuite name="skins-common tests">
+      <directory>./tests</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

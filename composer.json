@@ -23,7 +23,10 @@
 		"mediawiki/mediawiki-phan-config": "0.14.0",
 		"mediawiki/minus-x": "1.1.1",
 		"php-parallel-lint/php-console-highlighter": "1.0.0",
-		"php-parallel-lint/php-parallel-lint": "1.3.2"
+		"php-parallel-lint/php-parallel-lint": "1.3.2",
+		"mediawiki/minus-x": "1.1.1",
+		"phpunit/phpunit": "9.6.16",
+		"wikimedia/testing-access-wrapper": "~2.0.0"
 	},
 	"homepage": "https://www.mediawiki.org/",
 	"authors": [
@@ -32,7 +35,7 @@
 			"email": "mabualruz@wikimedia.org"
 		}
 	],
-	"license": "Apache-2.0",
+	"license": "GPL-2.0-or-later",
 	"support": {
 		"issues": "https://phabricator.wikimedia.org/",
 		"irc": "irc://irc.libera.chat/mediawiki",
@@ -45,29 +48,32 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Mediawiki\\Skins\\Common\\Tests\\Unit\\": "tests/unit/",
-			"Mediawiki\\Skins\\Common\\Tests\\Integration\\": "tests/integration/"
+			"Mediawiki\\Skins\\Common\\Tests\\Unit\\": "tests/phpunit/unit/",
+			"Mediawiki\\Skins\\Common\\Tests\\Integration\\": "tests/phpunit/integration/"
 		}
 	},
 	"scripts": {
+		"lint": "parallel-lint . --exclude vendor",
+		"phpcs": "phpcs -p -s",
+		"phan": "phan -d . --long-progress-bar --allow-polyfill-parser",
 		"fix": [
 			"minus-x fix .",
 			"phpcbf"
 		],
+		"phpunit": "phpunit $PHPUNIT_ARGS",
+		"coverage": "phpunit --coverage-html coverage $PHPUNIT_ARGS",
 		"test": [
-			"parallel-lint . --exclude node_modules --exclude vendor",
+			"@lint",
 			"@phpcs",
-			"minus-x check ."
-		],
-		"phan": "phan -d . --long-progress-bar",
-		"phpcs": "phpcs -sp --cache"
+			"@phpunit",
+			"minus-x check .",
+			"@phan"
+		]
 	},
 	"config": {
 		"allow-plugins": {
 			"composer/installers": true,
 			"wikimedia/composer-merge-plugin": false
 		}
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true
+	}
 }
